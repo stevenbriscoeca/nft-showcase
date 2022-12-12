@@ -4,6 +4,13 @@ import "@testing-library/jest-dom";
 import NftItem from "./ntf-item";
 
 describe("nft-item", () => {
+  it("matches snapshot", () => {
+    const { asFragment } = render(
+      <NftItem name="lol" url="https://opensea.io/" image="lmao.gif"></NftItem>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it(" should have correct name when setting the name prop", async () => {
     // ARRANGE
     render(<NftItem name="lol"></NftItem>);
@@ -35,12 +42,5 @@ describe("nft-item", () => {
 
     // ASSERT
     expect(imageSrc).toEqual("https://opensea.io/");
-  });
-
-  it("matches snapshot", () => {
-    const { asFragment } = render(
-      <NftItem name="lol" url="https://opensea.io/" image="lmao.gif"></NftItem>
-    );
-    expect(asFragment()).toMatchSnapshot();
   });
 });
