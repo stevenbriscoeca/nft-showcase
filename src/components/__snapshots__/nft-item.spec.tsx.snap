@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nft-item matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class=" bg-amber-400 rounded"
+  >
+    <a
+      class="font-bold underline text-white"
+      data-testid="url"
+      href="https://opensea.io/"
+    >
+      <span
+        data-testid="name"
+      >
+        lol
+      </span>
+      <img
+        alt=""
+        data-testid="image"
+        src="lmao.gif"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;

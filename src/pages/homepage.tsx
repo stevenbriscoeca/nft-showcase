@@ -5,13 +5,12 @@ import NftItem from "../components/ntf-item";
 import { fetchCollections } from "../services/opensea";
 
 export default function Homepage() {
-  const [data, setData] = useState<any[]>([]);
+  const [nftsCollection, setNtfsCollection] = useState<any[]>([]);
 
   useEffect(() => {
     fetchCollections().then((json) => {
       const filteredCollections = json.collections.filter(hasImage);
-      console.log(filteredCollections);
-      setData(filteredCollections);
+      setNtfsCollection(filteredCollections);
     });
   }, []);
 
@@ -27,12 +26,12 @@ export default function Homepage() {
 
   return (
     <div className="grid grid-cols-4 gap-4">
-      {data.map((item) => (
+      {nftsCollection.map((nft) => (
         <NftItem
-          key={item.slug}
-          name={item.name}
-          image={item.image_url}
-          url={buildURL(item.slug)}
+          key={nft.slug}
+          name={nft.name}
+          image={nft.image_url}
+          url={buildURL(nft.slug)}
         ></NftItem>
       ))}
     </div>
